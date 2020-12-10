@@ -1,5 +1,6 @@
-set(PLUGIN_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/install CACHE PATH "Plugin install prefix")
-set(CMAKE_INSTALL_PREFIX ${MODULE_INSTALL_PREFIX} CACHE PATH "CMake install prefix" FORCE)
+set(PROJECT_ROOT ${CMAKE_CURRENT_BINARY_DIR}/project CACHE PATH "Project root directory")
+set(PLUGIN_INSTALL_PREFIX plugins CACHE STRING "Plugin install prefix")
+set(CMAKE_INSTALL_PREFIX ${PROJECT_ROOT}/${PLUGIN_INSTALL_PREFIX} CACHE PATH "CMake install prefix" FORCE)
 
 configure_file(library.gdnlib.input library.gdnlib.output)
 
