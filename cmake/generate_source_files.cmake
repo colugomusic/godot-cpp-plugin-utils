@@ -3,11 +3,17 @@ foreach(source ${SOURCES})
 		list(APPEND SOURCE_FILES ${source})
 	else()
 		set(potential_header ${CMAKE_CURRENT_SOURCE_DIR}/src/${source}.h)
+		set(potential_public_header ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/${source}.h)
 		set(potential_cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/${source}.cpp)
 
 		if(EXISTS ${potential_header})
 			list(APPEND HEADERS ${potential_header})
 			list(APPEND SOURCE_FILES ${potential_header})
+		endif()
+
+		if(EXISTS ${potential_public_header})
+			list(APPEND PUBLIC_HEADERS ${potential_public_header})
+			list(APPEND SOURCE_FILES ${potential_public_header})
 		endif()
 
 		if(EXISTS ${potential_cpp})
